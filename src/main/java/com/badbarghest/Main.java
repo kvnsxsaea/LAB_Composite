@@ -5,7 +5,8 @@ import com.badbarghest.Dessin.Cercle;
 import com.badbarghest.Dessin.Rectangle;
 import com.badbarghest.Dessin.Triangle;
 import com.badbarghest.StrategieAffichage.IStrategieAffichage;
-import com.badbarghest.StrategieAffichage.StrategieAffichageChemin;
+import com.badbarghest.StrategieAffichage.Navigator;
+import com.badbarghest.StrategieAffichage.StrategieChemin;
 import com.badbarghest.StrategieAffichage.StrategieIndentation;
 
 import java.util.Scanner;
@@ -13,7 +14,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        IStrategieAffichage strat = new StrategieIndentation();
+        Navigator nav = new Navigator();
 
         System.out.println(promptProfondeur());
         int profondeur = scanner.nextInt();
@@ -21,17 +22,17 @@ public class Main {
         System.out.println(promptStrategieAffichage());
         switch (scanner.nextInt()) {
             case 1:
-                strat = new StrategieIndentation();
+                nav = new Navigator(new StrategieIndentation());
                 break;
             case 2:
-                strat = new StrategieAffichageChemin();
+                nav = new Navigator(new StrategieChemin());
                 break;
             default:
                 System.out.println("Choix invalide");
         }
 
         System.out.println("Affichage du dessin :");
-        strat.afficher(new Main().createDessins(), profondeur-1, "");
+        nav.afficher(new Main().createDessins(), profondeur);
     }
 
     public static String promptProfondeur() {

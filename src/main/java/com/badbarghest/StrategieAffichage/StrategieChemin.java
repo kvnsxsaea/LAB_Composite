@@ -4,14 +4,15 @@ import com.badbarghest.Dessin.IDessin;
 
 import java.util.Iterator;
 
-public class StrategieIndentation implements IStrategieAffichage{
+public class StrategieChemin implements IStrategieAffichage {
 
-    private final String SEPARATOR = "\t";
+    private final String SEPARATOR = ".";
 
     public void afficher(IDessin dessin, String path, int profondeur) {
         Iterator it = dessin.createIterator();
 
-        System.out.print(path + dessin.getNom());
+        path += dessin.getNom();
+        System.out.print(path);
         path += SEPARATOR;
 
         while (it != null && (it.hasNext() ) && profondeur < 5) {
