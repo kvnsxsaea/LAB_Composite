@@ -1,10 +1,10 @@
 package com.badbarghest;
 
 import com.badbarghest.Dessin.Dessin;
-import com.badbarghest.Dessin.Formes.Cercle;
-import com.badbarghest.Dessin.Formes.Rectangle;
-import com.badbarghest.Dessin.Formes.Triangle;
-import com.badbarghest.StrategieAffichage.StrategieAffichage;
+import com.badbarghest.Dessin.Cercle;
+import com.badbarghest.Dessin.Rectangle;
+import com.badbarghest.Dessin.Triangle;
+import com.badbarghest.StrategieAffichage.IStrategieAffichage;
 import com.badbarghest.StrategieAffichage.StrategieAffichageChemin;
 import com.badbarghest.StrategieAffichage.StrategieIndentation;
 
@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        StrategieAffichage strat = new StrategieIndentation();
+        IStrategieAffichage strat = new StrategieIndentation();
 
         System.out.println(promptProfondeur());
         int profondeur = scanner.nextInt();

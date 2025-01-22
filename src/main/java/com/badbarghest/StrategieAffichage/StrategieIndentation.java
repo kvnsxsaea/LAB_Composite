@@ -1,19 +1,23 @@
 package com.badbarghest.StrategieAffichage;
 
-import com.badbarghest.Dessin.AbstractDessin;
+import com.badbarghest.Dessin.IDessin;
 
 import java.util.Iterator;
 
-public class StrategieIndentation extends StrategieAffichage{
+public class StrategieIndentation implements IStrategieAffichage{
 
-    protected String separator = "\t";
+    private final String SEPARATOR = "\t";
 
-    public void afficher(AbstractDessin dessin, int profondeur, String path) {
+    public void afficher(IDessin dessin, int profondeur, String path) {
         Iterator it = dessin.createIterator();
         profondeur++;
         System.out.print(path + dessin.getNom());
-        path += separator.repeat(1);
+        path += SEPARATOR.repeat(1);
 
-        printChild(it, profondeur, path);
+        while (it != null && (it.hasNext() && profondeur <= 3)) {
+            IDessin enfant = (IDessin) it.next();
+            System.out.print("\n");
+            afficher(enfant, profondeur, path);
+        }
     }
 }
