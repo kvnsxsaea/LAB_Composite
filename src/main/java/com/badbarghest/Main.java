@@ -35,16 +35,18 @@ public class Main {
     }
 
     public static String promptProfondeur() {
-        return "Entrez le dessin à tester :\n" +
-                "1- Dessin avec 3 niveaux\n" +
-                "2- Dessin avec 2 niveaux\n" +
-                "3- Dessin avec 1 niveau (une forme seulement)";
+        return """
+                Entrez le dessin à tester :
+                1- Dessin avec 3 niveaux
+                2- Dessin avec 2 niveaux
+                3- Dessin avec 1 niveau (une forme seulement)""";
     }
 
     public static String promptStrategieAffichage() {
-        return "Entrez la stratégie d'affichage à utiliser :\n" +
-                "1- Indentation\n" +
-                "2- Chemin complet";
+        return """
+                Entrez la stratégie d'affichage à utiliser :
+                1- Indentation
+                2- Chemin complet""";
     }
 
     public Dessin createDessins() {
