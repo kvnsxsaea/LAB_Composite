@@ -1,6 +1,7 @@
 package com.badbarghest.StrategieAffichage;
 
 import com.badbarghest.Dessin.AbstractDessin;
+
 import java.util.Iterator;
 
 public class StrategieIndentation extends StrategieAffichage{

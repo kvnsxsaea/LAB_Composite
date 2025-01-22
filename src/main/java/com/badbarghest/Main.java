@@ -1,15 +1,19 @@
 package com.badbarghest;
 
 import com.badbarghest.Dessin.Dessin;
-import com.badbarghest.Dessin.Formes.*;
-import com.badbarghest.StrategieAffichage.*;
+import com.badbarghest.Dessin.Formes.Cercle;
+import com.badbarghest.Dessin.Formes.Rectangle;
+import com.badbarghest.Dessin.Formes.Triangle;
+import com.badbarghest.StrategieAffichage.StrategieAffichage;
+import com.badbarghest.StrategieAffichage.StrategieAffichageChemin;
+import com.badbarghest.StrategieAffichage.StrategieIndentation;
 
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        StrategieAffichage strat = null;
+        StrategieAffichage strat = new StrategieIndentation();
 
         System.out.println(promptProfondeur());
         int profondeur = scanner.nextInt();
@@ -31,7 +35,7 @@ public class Main {
     }
 
     public static String promptProfondeur() {
-        return"Entrez le dessin à tester :\n" +
+        return "Entrez le dessin à tester :\n" +
                 "1- Dessin avec 3 niveaux\n" +
                 "2- Dessin avec 2 niveaux\n" +
                 "3- Dessin avec 1 niveau (une forme seulement)";
