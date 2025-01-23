@@ -1,0 +1,62 @@
+@startuml
+class com.badbarghest.Dessin.Formes.Triangle {
+}
+abstract class com.badbarghest.Dessin.AbstractDessin {
+# String nom
+# ArrayList<AbstractDessin> enfants
++ Iterator createIterator()
++ String getNom()
++ void addEnfant(AbstractDessin)
++ void removeEnfant()
++ void removeEnfant(int)
+}
+
+
+abstract class com.badbarghest.StrategieAffichage.StrategieAffichage {
+# void printChild(Iterator,int,String)
+}
+
+class com.badbarghest.StrategieAffichage.StrategieAffichageChemin {
+# String separator
++ void afficher(AbstractDessin,int,String)
+}
+
+
+interface com.badbarghest.StrategieAffichage.IStrategieAffichage {
++ void afficher(AbstractDessin,int,String)
+}
+
+interface com.badbarghest.Dessin.IDessin {
++ Iterator createIterator()
+}
+
+class com.badbarghest.StrategieAffichage.StrategieIndentation {
+# String separator
++ void afficher(AbstractDessin,int,String)
+}
+
+
+class com.badbarghest.Dessin.Formes.Rectangle {
+}
+class com.badbarghest.Main {
++ {static} void main(String[])
++ {static} String promptProfondeur()
++ {static} String promptStrategieAffichage()
++ Dessin createDessins()
+}
+
+class com.badbarghest.Dessin.Formes.Cercle {
+}
+class com.badbarghest.Dessin.Dessin {
+}
+
+
+com.badbarghest.Dessin.AbstractDessin <|-- com.badbarghest.Dessin.Formes.Triangle
+com.badbarghest.Dessin.IDessin <|.. com.badbarghest.Dessin.AbstractDessin
+com.badbarghest.StrategieAffichage.IStrategieAffichage <|.. com.badbarghest.StrategieAffichage.StrategieAffichage
+com.badbarghest.StrategieAffichage.StrategieAffichage <|-- com.badbarghest.StrategieAffichage.StrategieAffichageChemin
+com.badbarghest.StrategieAffichage.StrategieAffichage <|-- com.badbarghest.StrategieAffichage.StrategieIndentation
+com.badbarghest.Dessin.AbstractDessin <|-- com.badbarghest.Dessin.Formes.Rectangle
+com.badbarghest.Dessin.AbstractDessin <|-- com.badbarghest.Dessin.Formes.Cercle
+com.badbarghest.Dessin.AbstractDessin <|-- com.badbarghest.Dessin.Dessin
+@enduml
